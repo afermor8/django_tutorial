@@ -25,11 +25,7 @@ SECRET_KEY = '9f0h)gozf$g%6igo8&767w1xro0adm+)msxe)!eic$!fhvynb8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-<<<<<<< HEAD
 ALLOWED_HOSTS = ['python.afm-tars.es','217.160.225.205']
-=======
-ALLOWED_HOSTS = ['192.168.122.63','django.arantxa.org']
->>>>>>> 4080cb98fc8db43b4984a4298e37bcab2d1963f8
 
 
 # Application definition
