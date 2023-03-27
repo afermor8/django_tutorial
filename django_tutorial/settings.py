@@ -10,11 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+import os
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -23,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '9f0h)gozf$g%6igo8&767w1xro0adm+)msxe)!eic$!fhvynb8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['python.afm-tars.es','217.160.225.205']
+ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS")]
 
 
 # Application definition
@@ -77,11 +78,11 @@ WSGI_APPLICATION = 'django_tutorial.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'djangodb',
-        'USER': 'arantxa',
-        'PASSWORD': 'Tequiero8*',
-        'HOST': 'localhost',
-        'PORT': '',
+        'NAME': os.environ.get("DJANGO_DB"),
+        'USER': os.environ.get('DJANGO_USER'),
+        'PASSWORD': os.environ.get("DJANGO_PASSWORD"),
+        'HOST': os.environ.get('DJANGO_HOST'),
+        'PORT': '3306',
     }
 }
 
@@ -122,6 +123,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+CSRF_TRUSTED_ORIGINS = ['http://*.afm-tars.es','http://*.127.0.0.1','https://*.afm-tars.es','https://*.127.0.0.1']
 
 DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
