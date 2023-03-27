@@ -6,10 +6,10 @@ RUN git clone https://github.com/afermor8/django_tutorial.git /usr/src/app && mk
 ADD ./script.sh /usr/src/app/
 RUN chmod +x /usr/src/app/script.sh
 ENV ALLOWED_HOSTS=*
-ENV HOST=mariadb
-ENV USUARIO=django
-ENV CONTRA=django
-ENV BASE_DATOS=django
+ENV DJANGO_HOST=mariadb
+ENV DJANGO_USER=django
+ENV DJANGO_PASSWORD=django
+ENV DJANGO_DB=django
 ENV DJANGO_SUPERUSER_PASSWORD=admin
 ENV DJANGO_SUPERUSER_USERNAME=admin
 ENV DJANGO_SUPERUSER_EMAIL=admin@example.org
