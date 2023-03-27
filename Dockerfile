@@ -5,7 +5,7 @@ RUN apt-get install git && pip install --root-user-action=ignore --upgrade pip &
 RUN git clone https://github.com/afermor8/django_tutorial.git /usr/src/app && mkdir static
 ADD ./script.sh /usr/src/app/
 RUN chmod +x /usr/src/app/script.sh
-ENV ALLOWED_HOSTS='*'
+ENV ALLOWED_HOSTS=*
 ENV HOST=mariadb
 ENV USUARIO=django
 ENV CONTRA=django
